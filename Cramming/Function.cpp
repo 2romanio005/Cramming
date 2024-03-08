@@ -12,7 +12,7 @@ void start_settings() {
 
 	hWndCon = GetStdHandle(STD_OUTPUT_HANDLE);
 
-	atexit(free_up_memory);  // функция вызываемая после завешнения программы
+	atexit(free_up_memory);  // С„СѓРЅРєС†РёСЏ РІС‹Р·С‹РІР°РµРјР°СЏ РїРѕСЃР»Рµ Р·Р°РІРµС€РЅРµРЅРёСЏ РїСЂРѕРіСЂР°РјРјС‹
 }
 
 void free_up_memory() {
@@ -33,7 +33,7 @@ void free_up_memory() {
 }
 
 
-void sort_table() {   // !!!!!!!!!!!!!!!! не знаю как улучшить
+void sort_table() {   // !!!!!!!!!!!!!!!! РЅРµ Р·РЅР°СЋ РєР°Рє СѓР»СѓС‡С€РёС‚СЊ
 	std::pair<int*, std::vector<std::string>> find_line = table[now_line];
 
 	bool (*pred)(std::pair<int*, std::vector<std::string>> one, std::pair<int*, std::vector<std::string>> two) = [](std::pair<int*, std::vector<std::string>> one, std::pair<int*, std::vector<std::string>> two) {
@@ -88,7 +88,7 @@ void get_size_consol() {
 
 	GetConsoleScreenBufferInfo(hWndCon, &csbiData);
 
-	size_consol = { csbiData.dwSize.X, csbiData.srWindow.Bottom + 1 };   // ширина, высота
+	size_consol = { csbiData.dwSize.X, csbiData.srWindow.Bottom + 1 };   // С€РёСЂРёРЅР°, РІС‹СЃРѕС‚Р°
 }
 
 
@@ -155,11 +155,11 @@ void out_table() {
 		}
 
 		if (fin == table.size()) {
-			out_in_right(line_tab_len * 8 + (size_consol.first - line_tab_len * 8) / 2 + 4, "До " + std::to_string(finish_level));
+			out_in_right(line_tab_len * 8 + (size_consol.first - line_tab_len * 8) / 2 + 4, "Р”Рѕ " + std::to_string(finish_level));
 		}
 		std::cout << "\n\n";
 
-		out_in_center(size_consol.first, "Используйте клавиши управления курсором для перемещения по списку");
+		out_in_center(size_consol.first, "РСЃРїРѕР»СЊР·СѓР№С‚Рµ РєР»Р°РІРёС€Рё СѓРїСЂР°РІР»РµРЅРёСЏ РєСѓСЂСЃРѕСЂРѕРј РґР»СЏ РїРµСЂРµРјРµС‰РµРЅРёСЏ РїРѕ СЃРїРёСЃРєСѓ");
 
 	one_more_click:
 		k1 = _getch();
@@ -174,16 +174,16 @@ void out_table() {
 			k2 = _getch();
 			switch (k2)
 			{
-			case 0x48: // верх
-			case 0x4B: // лево
+			case 0x48: // РІРµСЂС…
+			case 0x4B: // Р»РµРІРѕ
 				start = (std::max)(start - size_consol.second + 3, 0);
 				break;
-			case 0x50: // низ
-			case 0x4D: // право
+			case 0x50: // РЅРёР·
+			case 0x4D: // РїСЂР°РІРѕ
 				start = fin;
 				break;
 			case 0x6B: // f4
-				if (k1 == 0x00) exit(0); // проверка на всякий случай
+				if (k1 == 0x00) exit(0); // РїСЂРѕРІРµСЂРєР° РЅР° РІСЃСЏРєРёР№ СЃР»СѓС‡Р°Р№
 			default:
 				goto one_more_click;
 				break;
@@ -206,7 +206,7 @@ void out_table() {
 		}
 
 		if (iter_line == table.size()) {
-			out_in_right(line_tab_len * 8 + (size_consol.first - line_tab_len * 8) / 2 + 4, "До " + std::to_string(finish_level));
+			out_in_right(line_tab_len * 8 + (size_consol.first - line_tab_len * 8) / 2 + 4, "Р”Рѕ " + std::to_string(finish_level));
 		}
 		std::cout << '\n';
 
@@ -225,7 +225,7 @@ void out_void(int namber_line) {
 
 
 void get_any_key() {
-	out_in_center(size_consol.first, "Нажмите любую клавишу для продолжения");
+	out_in_center(size_consol.first, "РќР°Р¶РјРёС‚Рµ Р»СЋР±СѓСЋ РєР»Р°РІРёС€Сѓ РґР»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ");
 	_getch();
 }
 

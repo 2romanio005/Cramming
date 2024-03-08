@@ -14,7 +14,7 @@
 #include <fstream>
 
 
-#define CODR_PAGE 1251         // кодировка
+#define CODR_PAGE 1251         // РєРѕРґРёСЂРѕРІРєР°
 
 
 extern int now_line;
@@ -28,7 +28,7 @@ extern int ready_word;
 extern int finish_level;
 extern char separator;
 
-extern std::pair<int, int> size_consol;   // ширина, высота
+extern std::pair<int, int> size_consol;   // С€РёСЂРёРЅР°, РІС‹СЃРѕС‚Р°
 extern HANDLE hWndCon;
 
 extern std::string open_path;
